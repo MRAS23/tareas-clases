@@ -6,6 +6,15 @@
 // 3. obtener el número más grande y mostrarlo en un <em> pre-creado con el texto "El número más grande es..."
 // 4. obtener el número que más se repite y mostrarlo en un <em> pre-creado con el texto "El número más frecuente es..."
 
+function convierteNodeListArrayNumeros(nodelist) {
+  let listaNumeros = [];
+  for (let i = 0; i < $NumerosNodeList.length; i++) {
+    listaNumeros[i] = Number($NumerosNodeList[i].innerText);
+  }
+
+  return listaNumeros;
+}
+
 function calculaPromedioNumeros(numeros) {
   let promedio = 0;
 
@@ -57,13 +66,10 @@ function calcularNumeroMasRepetido(numeros) {
   return masRepetido;
 }
 
-let $NumerosNodeLis = document.querySelectorAll("li");
+let $NumerosNodeList = document.querySelectorAll("li");
 
 document.querySelector("#calcula-promedio").onclick = function () {
-  let listaNumeros = [];
-  for (let i = 0; i < $NumerosNodeLis.length; i++) {
-    listaNumeros[i] = Number($NumerosNodeLis[i].innerText);
-  }
+  let listaNumeros = convierteNodeListArrayNumeros($NumerosNodeList);
 
   document.querySelector("#promedio").innerText = `${calculaPromedioNumeros(listaNumeros)}`;
   document.querySelector("#mayor").innerText = `${calculaMayorNumero(listaNumeros)}`;
