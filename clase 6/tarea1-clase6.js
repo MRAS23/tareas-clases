@@ -90,3 +90,21 @@ function calculaPromedioEdades(edades) {
 
   return promedio;
 }
+
+document.querySelector("#borrar-todo").onclick = function (event) {
+  borrarInputsDinamicos();
+  borrarResultados();
+
+  event.preventDefault();
+};
+
+function borrarInputsDinamicos(cantidadIntegrantes) {
+  const $integrantes = document.querySelectorAll(".integrante");
+  for (let i = 0; i < $integrantes.length; i++) {
+    $integrantes[i].remove();
+  }
+}
+
+function borrarResultados() {
+  document.querySelector(".calculo input").className = "oculto";
+}
