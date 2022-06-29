@@ -10,12 +10,26 @@ document.querySelector("#agrega-inputs").onclick = function (event) {
   const $cantidadIntegrantes = document.querySelector("#cantidad-integrantes");
   const cantidadIntegrantes = Number($cantidadIntegrantes.value);
 
+  borrarIntegrantes();
   crearVariosIntegrantes(cantidadIntegrantes);
 
   event.preventDefault();
 };
 
+function borrarIntegrantes() {
+  const $integrantes = document.querySelectorAll(".integrante");
+  for (let i = 0; i < $integrantes.length; i++) {
+    $integrantes[i].remove();
+  }
+}
+
 function crearVariosIntegrantes(cantidadIntegrantes) {
+  if (cantidadIntegrantes > 0) {
+    mostrarBotonCalculo();
+  } else {
+    resetear();
+  }
+
   for (let i = 0; i < cantidadIntegrantes; i++) {
     crearIntegrante(i);
   }
@@ -56,6 +70,8 @@ document.querySelector("#calcular").onclick = function (event) {
   document.querySelector("#menor-edad").value = `${menorEdad}`;
   document.querySelector("#promedio-edad").value = `${promedioEdades}`;
 
+  mostrarResultados();
+
   event.preventDefault();
 };
 
@@ -92,11 +108,16 @@ function calculaPromedioEdades(edades) {
 }
 
 document.querySelector("#borrar-todo").onclick = function (event) {
-  borrarInputsDinamicos();
-  borrarResultados();
+  resetear();
 
   event.preventDefault();
 };
+
+function resetear() {
+  borrarInputsDinamicos();
+  ocultarBotonCalculo();
+  ocultarResultados();
+}
 
 function borrarInputsDinamicos(cantidadIntegrantes) {
   const $integrantes = document.querySelectorAll(".integrante");
@@ -105,6 +126,18 @@ function borrarInputsDinamicos(cantidadIntegrantes) {
   }
 }
 
-function borrarResultados() {
-  document.querySelector(".calculo input").className = "oculto";
+function ocultarBotonCalculo() {
+  document.querySelector("#calcular").className = "oculto";
+}
+
+function mostrarBotonCalculo() {
+  document.querySelector("#calcular").className = "";
+}
+
+function ocultarResultados() {
+  document.querySelector("#calculo").className = "oculto";
+}
+
+function mostrarResultados() {
+  document.querySelector("#calculo").className = "";
 }
