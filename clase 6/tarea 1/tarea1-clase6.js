@@ -114,12 +114,12 @@ document.querySelector("#borrar-todo").onclick = function (event) {
 };
 
 function resetear() {
-  borrarInputsDinamicos();
+  borrarIntegrantesAnteriores();
   ocultarBotonCalculo();
   ocultarResultados();
 }
 
-function borrarInputsDinamicos(cantidadIntegrantes) {
+function borrarIntegrantesAnteriores(cantidadIntegrantes) {
   const $integrantes = document.querySelectorAll(".integrante");
   for (let i = 0; i < $integrantes.length; i++) {
     $integrantes[i].remove();
