@@ -17,3 +17,35 @@ function cambiaTitulo(primerNombre) {
 
   return titulo;
 }
+
+function validarPrimerNombre(primerNombre) {
+  if (primerNombre.length === 0) {
+    return "Primer nombre debe tener al menos 1 caracter";
+  }
+
+  return " ";
+}
+
+function validarSegundoNombre(segundoNombre) {
+  if (segundoNombre.length === 0) {
+    return "Segundo nombre debe tener al menos 1 caracter";
+  }
+
+  return " ";
+}
+
+function validarApellido(apellido) {
+  if (apellido.length === 0) {
+    return "Apellido debe tener al menos 1 caracter";
+  }
+
+  return " ";
+}
+
+function validarEdad(edad) {
+  if (edad.length === 0) {
+    return "Edad no puede ser vacío";
+  }
+
+  return " ";
+}
