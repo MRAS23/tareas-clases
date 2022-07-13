@@ -5,11 +5,6 @@ const ciudad = $form.ciudad.value;
 const comportamiento = $form.comportamiento.value;
 const descripcionRegalo = $form["descripcion-regalo"].value;
 
-/* console.log(nombre);
-console.log(ciudad);
-console.log(comportamiento);
-console.log(descripcionRegalo); */
-
 function validarNombre(nombre) {
   if (nombre.length === 0) {
     return "El campo nombre debe tener al menos 1 caracter";
@@ -57,7 +52,7 @@ function validarFormulario(event) {
   const errores = {
     nombre: errorNombre,
     ciudad: errorCiudad,
-    "descripcion-regalo": errorDescripcionRegalo, //nombre de estas keys debe coincidir el del los elementos html
+    "descripcion-regalo": errorDescripcionRegalo,
   };
 
   manejarErrores(errores);
