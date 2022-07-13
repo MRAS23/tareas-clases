@@ -83,29 +83,6 @@ function manejarErrores(errores) {
       $form[key].className = "";
     }
   });
-
-  /*   errorNombre = errores.nombre; //nombre
-  errorCiudad = errores.ciudad; //ciudad
-  errorDescripcionRegalo = errores.descripcionRegalo; //descripcion regalo
-
-  if (errorNombre) {
-    // este if pregunta si errorNombre esta vacio, retorna boolean
-    $form.nombre.className = "error";
-  } else {
-    $form.nombre.className = "";
-  }
-  if (errorCiudad) {
-    $form.ciudad.className = "error";
-  } else {
-    $form.ciudad.className = "";
-  }
-  if (errorDescripcionRegalo) {
-    $form["descripcion-regalo"].className = "error";
-  } else {
-    $form["descripcion-regalo"].className = "";
-  }
-*/
-  //vamos a reemplazar todo esto de arriba por algo que sea mas sostenible y dinamico
 }
 
 $form.onsubmit = validarFormulario;
