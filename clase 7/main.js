@@ -57,7 +57,7 @@ function validarFormulario(event) {
   const errores = {
     nombre: errorNombre,
     ciudad: errorCiudad,
-    "descripcion-regalo": errorDescripcionRegalo, //nombre de estas keys debe coincidir el del los elementos html
+    descripcionRegalo: errorDescripcionRegalo,
   };
 
   manejarErrores(errores);
@@ -66,30 +66,7 @@ function validarFormulario(event) {
 }
 
 function manejarErrores(errores) {
-  const keys = Object.keys(errores);
-  const $errores = document.querySelector("#errores");
-
-  keys.forEach(function (key) {
-    const error = errores[key];
-
-    if (error) {
-      $form[key].className = "error";
-
-      const $error = document.createElement("li");
-      $error.innerText = error;
-      $errores.appendChild($error);
-    } else {
-      //borrar el campo adecuado
-      /*  const $listaErrores = document.querySelector(".error");
-      for (let i = 0; i <= $listaErrores.length; i++) {
-        $listaErrores[i].remove();
-      } */
-
-      $form[key].className = "";
-    }
-  });
-
-  /*   errorNombre = errores.nombre; //nombre
+  errorNombre = errores.nombre; //nombre
   errorCiudad = errores.ciudad; //ciudad
   errorDescripcionRegalo = errores.descripcionRegalo; //descripcion regalo
 
@@ -109,8 +86,6 @@ function manejarErrores(errores) {
   } else {
     $form["descripcion-regalo"].className = "";
   }
-*/
-  //vamos a reemplazar todo esto de arriba por algo que sea mas sostenible y dinamico
 }
 
 $form.onsubmit = validarFormulario;
