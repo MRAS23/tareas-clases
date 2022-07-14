@@ -55,6 +55,7 @@ function validarFormulario(event) {
     "descripcion-regalo": errorDescripcionRegalo,
   };
 
+  //borrarListaErrores();
   manejarErrores(errores);
 
   event.preventDefault();
@@ -66,23 +67,33 @@ function manejarErrores(errores) {
 
   keys.forEach(function (key) {
     const error = errores[key];
+    let $campoError = document.querySelector(`.error-${[key]}`);
 
     if (error) {
       $form[key].className = "error";
 
-      const $error = document.createElement("li");
-      $error.innerText = error;
-      $errores.appendChild($error);
+      if ($campoError === null) {
+        const $error = document.createElement("li");
+        $error.innerText = error;
+        $error.className = `error-${[key]}`;
+        $errores.appendChild($error);
+      }
     } else {
-      //borrar el campo adecuado
-      /*  const $listaErrores = document.querySelector(".error");
-      for (let i = 0; i <= $listaErrores.length; i++) {
-        $listaErrores[i].remove();
-      } */
-
       $form[key].className = "";
+      if ($campoError) {
+        $campoError.remove();
+      }
     }
   });
 }
+
+/* function borrarListaErrores() {
+  let $listaErrores = document.querySelectorAll("");
+  if ($listaErrores > 0) {
+    for (let i = 0; i <= $listaErrores.length; i++) {
+      $listaErrores[i].remove();
+    }
+  }
+} */
 
 $form.onsubmit = validarFormulario;
