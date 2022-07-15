@@ -55,7 +55,12 @@ function validarFormulario(event) {
     "descripcion-regalo": errorDescripcionRegalo,
   };
 
-  manejarErrores(errores);
+  const esExito = manejarErrores(errores) === 0;
+
+  if (esExito) {
+    document.querySelector("#exito").className = "";
+    $form.className = "oculto";
+  }
 
   event.preventDefault();
 }
@@ -63,6 +68,7 @@ function validarFormulario(event) {
 function manejarErrores(errores) {
   const keys = Object.keys(errores);
   const $errores = document.querySelector("#errores");
+  let cantidadErrores = 0;
 
   keys.forEach(function (key) {
     const error = errores[key];
@@ -70,6 +76,7 @@ function manejarErrores(errores) {
 
     if (error) {
       $form[key].className = "error";
+      cantidadErrores++;
 
       if ($campoError === null) {
         const $error = document.createElement("li");
@@ -84,6 +91,8 @@ function manejarErrores(errores) {
       }
     }
   });
+
+  return cantidadErrores;
 }
 
 $form.onsubmit = validarFormulario;
