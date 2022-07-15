@@ -55,7 +55,6 @@ function validarFormulario(event) {
     "descripcion-regalo": errorDescripcionRegalo,
   };
 
-  //borrarListaErrores();
   manejarErrores(errores);
 
   event.preventDefault();
@@ -86,14 +85,5 @@ function manejarErrores(errores) {
     }
   });
 }
-
-/* function borrarListaErrores() {
-  let $listaErrores = document.querySelectorAll("");
-  if ($listaErrores > 0) {
-    for (let i = 0; i <= $listaErrores.length; i++) {
-      $listaErrores[i].remove();
-    }
-  }
-} */
 
 $form.onsubmit = validarFormulario;
